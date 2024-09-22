@@ -1,0 +1,1185 @@
+2024-09-20 06:44:53,680 - run_server.py - 101 - INFO - path=PathConfig(work_space_root='workspace/', download_root='workspace/download/', code_interpreter_ws='workspace/tools/code_interpreter/') server=ServerConfig(server_host='127.0.0.1', fast_api_port=7866, app_in_browser_port=7863, workstation_port=7864, model_server='http://localhost:11434/v1', api_key='EMPTY', llm='Qwen2.5-Coder-7B-Instruct-IQ4_XS', max_ref_token=4000, max_days=7)
+2024-09-20 06:44:55,688 - database_server.py - 34 - INFO - 192.168.1.69
+2024-09-20 06:44:55,757 - database_server.py - 34 - INFO - 192.168.1.69
+INFO:     Started server process [1374867]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:7866 (Press CTRL+C to quit)
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 685, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    |     ) = await request_body_to_args(  # body_params checked above
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    |     fields_to_extract = get_cached_model_fields(first_field.type_)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    |     return get_model_fields(model)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    |     ModelField(field_info=field_info, name=name)
+    |   File "<string>", line 6, in __init__
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    |     self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+    |                                            ^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    |     self._init_core_attrs(rebuild_mocks=False)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    |     return func(self, *args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    |     self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    |     schema = gen.generate_schema(type_)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    |     return self._annotated_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    |     schema = self._apply_annotations(source_type, annotations)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    |     schema = get_inner_schema(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    |     schema = metadata_get_schema(source, get_inner_schema)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    |     lambda source, handler: handler(source)
+    |                             ^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    |     return self._match_generic_type(obj, origin)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    |     return self._union_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    |     choices.append(self.generate_schema(arg))
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    |     return self._unknown_type_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    |     raise PydanticSchemaGenerationError(
+    | pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+    | 
+    | If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+    | 
+    | For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    ) = await request_body_to_args(  # body_params checked above
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    fields_to_extract = get_cached_model_fields(first_field.type_)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    return get_model_fields(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    ModelField(field_info=field_info, name=name)
+  File "<string>", line 6, in __init__
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+                                           ^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    self._init_core_attrs(rebuild_mocks=False)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    schema = gen.generate_schema(type_)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    return self._annotated_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    schema = self._apply_annotations(source_type, annotations)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    schema = get_inner_schema(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    schema = metadata_get_schema(source, get_inner_schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    lambda source, handler: handler(source)
+                            ^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    return self._match_generic_type(obj, origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    return self._union_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    return self._unknown_type_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 685, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    |     ) = await request_body_to_args(  # body_params checked above
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    |     fields_to_extract = get_cached_model_fields(first_field.type_)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    |     return get_model_fields(model)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    |     ModelField(field_info=field_info, name=name)
+    |   File "<string>", line 6, in __init__
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    |     self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+    |                                            ^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    |     self._init_core_attrs(rebuild_mocks=False)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    |     return func(self, *args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    |     self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    |     schema = gen.generate_schema(type_)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    |     return self._annotated_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    |     schema = self._apply_annotations(source_type, annotations)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    |     schema = get_inner_schema(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    |     schema = metadata_get_schema(source, get_inner_schema)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    |     lambda source, handler: handler(source)
+    |                             ^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    |     return self._match_generic_type(obj, origin)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    |     return self._union_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    |     choices.append(self.generate_schema(arg))
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    |     return self._unknown_type_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    |     raise PydanticSchemaGenerationError(
+    | pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+    | 
+    | If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+    | 
+    | For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    ) = await request_body_to_args(  # body_params checked above
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    fields_to_extract = get_cached_model_fields(first_field.type_)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    return get_model_fields(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    ModelField(field_info=field_info, name=name)
+  File "<string>", line 6, in __init__
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+                                           ^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    self._init_core_attrs(rebuild_mocks=False)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    schema = gen.generate_schema(type_)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    return self._annotated_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    schema = self._apply_annotations(source_type, annotations)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    schema = get_inner_schema(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    schema = metadata_get_schema(source, get_inner_schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    lambda source, handler: handler(source)
+                            ^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    return self._match_generic_type(obj, origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    return self._union_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    return self._unknown_type_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 685, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    |     ) = await request_body_to_args(  # body_params checked above
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    |     fields_to_extract = get_cached_model_fields(first_field.type_)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    |     return get_model_fields(model)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    |     ModelField(field_info=field_info, name=name)
+    |   File "<string>", line 6, in __init__
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    |     self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+    |                                            ^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    |     self._init_core_attrs(rebuild_mocks=False)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    |     return func(self, *args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    |     self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    |     schema = gen.generate_schema(type_)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    |     return self._annotated_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    |     schema = self._apply_annotations(source_type, annotations)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    |     schema = get_inner_schema(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    |     schema = metadata_get_schema(source, get_inner_schema)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    |     lambda source, handler: handler(source)
+    |                             ^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    |     return self._match_generic_type(obj, origin)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    |     return self._union_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    |     choices.append(self.generate_schema(arg))
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    |     return self._unknown_type_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    |     raise PydanticSchemaGenerationError(
+    | pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+    | 
+    | If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+    | 
+    | For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    ) = await request_body_to_args(  # body_params checked above
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    fields_to_extract = get_cached_model_fields(first_field.type_)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    return get_model_fields(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    ModelField(field_info=field_info, name=name)
+  File "<string>", line 6, in __init__
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+                                           ^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    self._init_core_attrs(rebuild_mocks=False)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    schema = gen.generate_schema(type_)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    return self._annotated_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    schema = self._apply_annotations(source_type, annotations)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    schema = get_inner_schema(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    schema = metadata_get_schema(source, get_inner_schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    lambda source, handler: handler(source)
+                            ^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    return self._match_generic_type(obj, origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    return self._union_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    return self._unknown_type_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 77, in collapse_excgroups
+  |     yield
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 186, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 685, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    |     with collapse_excgroups():
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    |     response = await call_next(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    |     raise app_exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    |     raise exc
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    |     solved_result = await solve_dependencies(
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    |     ) = await request_body_to_args(  # body_params checked above
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    |     fields_to_extract = get_cached_model_fields(first_field.type_)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    |     return get_model_fields(model)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    |     ModelField(field_info=field_info, name=name)
+    |   File "<string>", line 6, in __init__
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    |     self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+    |                                            ^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    |     self._init_core_attrs(rebuild_mocks=False)
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    |     return func(self, *args, **kwargs)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    |     self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    |     schema = gen.generate_schema(type_)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    |     return self._annotated_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    |     schema = self._apply_annotations(source_type, annotations)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    |     schema = get_inner_schema(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    |     schema = metadata_get_schema(source, get_inner_schema)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    |     lambda source, handler: handler(source)
+    |                             ^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    |     schema = self._handler(source_type)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    |     return self._match_generic_type(obj, origin)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    |     return self._union_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    |     choices.append(self.generate_schema(arg))
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    |     schema = self._generate_schema_inner(obj)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    |     return self.match_type(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    |     return self._unknown_type_schema(obj)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    |     raise PydanticSchemaGenerationError(
+    | pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+    | 
+    | If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+    | 
+    | For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 401, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 70, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 185, in __call__
+    with collapse_excgroups():
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_utils.py", line 83, in collapse_excgroups
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 187, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/gradio/route_utils.py", line 664, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 62, in wrapped_app
+    raise exc
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/_exception_handler.py", line 51, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/routing.py", line 291, in app
+    solved_result = await solve_dependencies(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 656, in solve_dependencies
+    ) = await request_body_to_args(  # body_params checked above
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/dependencies/utils.py", line 881, in request_body_to_args
+    fields_to_extract = get_cached_model_fields(first_field.type_)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 657, in get_cached_model_fields
+    return get_model_fields(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 285, in get_model_fields
+    ModelField(field_info=field_info, name=name)
+  File "<string>", line 6, in __init__
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/fastapi/_compat.py", line 110, in __post_init__
+    self._type_adapter: TypeAdapter[Any] = TypeAdapter(
+                                           ^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 257, in __init__
+    self._init_core_attrs(rebuild_mocks=False)
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 135, in wrapped
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 277, in _init_core_attrs
+    self._core_schema = _get_schema(self._type, config_wrapper, parent_depth=self._parent_depth)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/type_adapter.py", line 95, in _get_schema
+    schema = gen.generate_schema(type_)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 908, in _generate_schema_inner
+    return self._annotated_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2028, in _annotated_schema
+    schema = self._apply_annotations(source_type, annotations)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2107, in _apply_annotations
+    schema = get_inner_schema(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2189, in new_handler
+    schema = metadata_get_schema(source, get_inner_schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2185, in <lambda>
+    lambda source, handler: handler(source)
+                            ^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_schema_generation_shared.py", line 83, in __call__
+    schema = self._handler(source_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 2088, in inner_handler
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1029, in match_type
+    return self._match_generic_type(obj, origin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1058, in _match_generic_type
+    return self._union_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1378, in _union_schema
+    choices.append(self.generate_schema(arg))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 655, in generate_schema
+    schema = self._generate_schema_inner(obj)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 929, in _generate_schema_inner
+    return self.match_type(obj)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 1038, in match_type
+    return self._unknown_type_schema(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py", line 558, in _unknown_type_schema
+    raise PydanticSchemaGenerationError(
+pydantic.errors.PydanticSchemaGenerationError: Unable to generate pydantic-core schema for <class 'starlette.requests.Request'>. Set `arbitrary_types_allowed=True` in the model_config to ignore this error or implement `__get_pydantic_core_schema__` on your type to fully support it.
+
+If you got this error by calling handler(<some type>) within `__get_pydantic_core_schema__` then you likely need to call `handler.generate_schema(<some type>)` since we do not call `__get_pydantic_core_schema__` on `<some type>` otherwise to avoid infinite recursion.
+
+For further information visit https://errors.pydantic.dev/2.9/u/schema-for-unknown-type
+Running on local URL:  http://127.0.0.1:7863
+
+To create a public link, set `share=True` in `launch()`.
+IMPORTANT: You are using gradio version 4.21.0, however version 4.29.0 is available, please upgrade.
+--------
+Keyboard interruption in main thread... closing server.
+Running on local URL:  http://127.0.0.1:7864
+
+To create a public link, set `share=True` in `launch()`.
+IMPORTANT: You are using gradio version 4.21.0, however version 4.29.0 is available, please upgrade.
+--------
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1374867]
+Traceback (most recent call last):
+  File "/home/mici/Source/brain/_repos_/Qwen-Agent/run_server.py", line 144, in <module>
+    main()
+  File "/home/mici/Source/brain/_repos_/Qwen-Agent/run_server.py", line 140, in main
+    p.wait()
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/mici/miniconda3/envs/qwen/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mici/Source/brain/_repos_/Qwen-Agent/qwen_agent/utils/utils.py", line 44, in new_handler
+    handler(*args, **kwargs)
+  File "/home/mici/Source/brain/_repos_/Qwen-Agent/run_server.py", line 134, in signal_handler
+    raise KeyboardInterrupt()
+KeyboardInterrupt
